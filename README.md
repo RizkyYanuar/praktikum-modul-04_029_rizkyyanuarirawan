@@ -3,7 +3,7 @@ Nama: Rizky Yanuar Irawan
 Kelas: 2A D3
 NIM: 251511029
 
-# MintonStore - Web Shopping Cart Application
+# MintonStore - Aplikasi Toko Online
 
 MintonStore adalah aplikasi toko online berbasis web yang dikembangkan menggunakan **PHP (Laravel Framework)**, **Tailwind CSS**. Aplikasi ini menyediakan sistem autentikasi pengguna, manajemen katalog produk, keranjang belanja berbasis server (*server-side session*), pemrosesan transaksi *checkout* dengan transaksi database, serta riwayat pesanan pengguna.
 
