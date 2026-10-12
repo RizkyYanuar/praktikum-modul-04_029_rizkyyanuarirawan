@@ -5,8 +5,10 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\StatelessController;
 use Illuminate\Support\Facades\Auth;
-    Route::get('/', [ProductController::class, 'dashboardView'])->name('dashboard');
+
+Route::get('/', [ProductController::class, 'dashboardView'])->name('dashboard');
 
 Route::middleware('guest')->group(function () {
     Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
@@ -29,3 +31,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 });
+
+// RUTE UNTUK PRAKTIKUM 4b
+
+Route::get('/cartnew', [StatelessController::class, 'index']);
+Route::post('/cartnew/add', [StatelessController::class, 'add'])->name('cart.add');
+Route::post('/cartnew/update', [StatelessController::class, 'update'])->name('cart.update');
