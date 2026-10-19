@@ -7,6 +7,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\StatelessController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\RoleController;
 
 Route::get('/', [ProductController::class, 'dashboardView'])->name('dashboard');
 
@@ -30,6 +31,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/checkout', [OrderController::class, 'checkout'])->name('checkout');
 
     Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+
+    Route::patch(
+        '/admin/users/{user}/role',
+        [RoleController::class, 'update']
+    )
+        ->middleware(['auth', 'can:manage-roles'])
+        ->name('admin.users.role.update');
 });
 
 // RUTE UNTUK PRAKTIKUM 4b
