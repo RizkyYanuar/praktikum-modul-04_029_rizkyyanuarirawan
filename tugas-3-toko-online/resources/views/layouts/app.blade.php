@@ -30,6 +30,14 @@
                         class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Keranjang</a>
                     <a href="{{ route('orders.index') }}"
                         class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Pesanan Saya</a>
+                    @can('manage-roles')
+                        <a href="{{ route('admin.manage-roles') }}" class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">
+                            Manajemen Pengguna
+                        </a>
+                        <a href="{{ route('admin.change-role-logs') }}" class="text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">
+                            Log Perubahan Role
+                        </a>
+                    @endcan
                 </div>
 
                 <div class="flex items-center space-x-4">

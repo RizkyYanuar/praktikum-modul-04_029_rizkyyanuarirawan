@@ -10,6 +10,13 @@ use Illuminate\Http\RedirectResponse;
 
 class RoleController extends Controller
 {
+
+    public function index()
+    {
+        $users = User::all();
+        return view('admin.manage-roles', compact('users'));
+    }
+    
     public function update(
         ChangeRoleRequest $request,
         User $user,

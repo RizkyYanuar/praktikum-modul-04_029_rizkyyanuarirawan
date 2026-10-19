@@ -42,6 +42,7 @@ class AppServiceProvider extends ServiceProvider
             'use-cart',
             fn(User $user): bool => $user->role === 'customer'
         );
+        
 
         User::observe(UserObserver::class);
     }

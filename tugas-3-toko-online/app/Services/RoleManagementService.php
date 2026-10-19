@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Services;
+
 use App\Models\User;
 use Illuminate\Validation\ValidationException;
 
@@ -11,6 +12,13 @@ class RoleManagementService
         User $target,
         string $newRole
     ): void {
+
+        if ($actor->role !== 'admin') {
+            throw ValidationException::withMessages([
+                'role' => 'Anda tidak memiliki izin untuk mengubah role.'
+            ]);
+        }
+        
         if ($actor->is($target) || $target->role === 'admin') {
             throw ValidationException::withMessages([
                 'role' => 'Akun admin tidak dapat diubah di fitur ini.'
