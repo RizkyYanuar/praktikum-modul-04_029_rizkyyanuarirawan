@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use App\Models\User;
+use App\Observers\UserObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -41,5 +42,7 @@ class AppServiceProvider extends ServiceProvider
             'use-cart',
             fn(User $user): bool => $user->role === 'customer'
         );
+
+        User::observe(UserObserver::class);
     }
 }
